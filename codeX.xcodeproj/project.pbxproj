@@ -13,6 +13,7 @@
 		980FE73820BB574300D99417 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980FE73620BB574300D99417 /* Main.storyboard */; };
 		980FE73A20BB574500D99417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 980FE73920BB574500D99417 /* Assets.xcassets */; };
 		980FE73D20BB574500D99417 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980FE73B20BB574500D99417 /* LaunchScreen.storyboard */; };
+		980FE74720BB582800D99417 /* codeX.app in Resources */ = {isa = PBXBuildFile; fileRef = 980FE72D20BB574300D99417 /* codeX.app */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,15 +57,55 @@
 		980FE72F20BB574300D99417 /* codeX */ = {
 			isa = PBXGroup;
 			children = (
+				980FE74A20BB591B00D99417 /* Services */,
+				980FE74520BB580600D99417 /* Extensions */,
+				980FE74920BB58DF00D99417 /* Model */,
+				980FE74820BB58D500D99417 /* View */,
+				980FE74420BB57FE00D99417 /* Controller */,
 				980FE73020BB574300D99417 /* AppDelegate.swift */,
-				980FE73220BB574300D99417 /* FirstViewController.swift */,
-				980FE73420BB574300D99417 /* SecondViewController.swift */,
 				980FE73620BB574300D99417 /* Main.storyboard */,
 				980FE73920BB574500D99417 /* Assets.xcassets */,
 				980FE73B20BB574500D99417 /* LaunchScreen.storyboard */,
 				980FE73E20BB574500D99417 /* Info.plist */,
 			);
 			path = codeX;
+			sourceTree = "<group>";
+		};
+		980FE74420BB57FE00D99417 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				980FE73220BB574300D99417 /* FirstViewController.swift */,
+				980FE73420BB574300D99417 /* SecondViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		980FE74520BB580600D99417 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		980FE74820BB58D500D99417 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		980FE74920BB58DF00D99417 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		980FE74A20BB591B00D99417 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +169,7 @@
 				980FE73D20BB574500D99417 /* LaunchScreen.storyboard in Resources */,
 				980FE73A20BB574500D99417 /* Assets.xcassets in Resources */,
 				980FE73820BB574300D99417 /* Main.storyboard in Resources */,
+				980FE74720BB582800D99417 /* codeX.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29BFEDRFS6;
 				INFOPLIST_FILE = codeX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29BFEDRFS6;
 				INFOPLIST_FILE = codeX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
