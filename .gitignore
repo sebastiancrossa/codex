@@ -29,6 +29,7 @@ xcuserdata/
 *.dSYM
 
 DataService.swift
+AuthService.swift
 
 ## Playgrounds
 timeline.xctimeline
