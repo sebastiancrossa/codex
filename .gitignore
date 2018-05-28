@@ -28,6 +28,8 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
+DataService.swift
+
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
