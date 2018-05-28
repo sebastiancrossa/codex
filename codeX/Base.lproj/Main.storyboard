@@ -180,7 +180,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmR-WO-Lh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-175.19999999999999" y="8.5457271364317844"/>
+            <point key="canvasLocation" x="-628" y="9"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1zQ-B5-WpO">
+            <objects>
+                <viewController id="ye6-dx-l8S" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EEH-oX-3jd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Myd-Ey-A4E">
+                                <rect key="frame" x="20" y="28" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="4RB-o7-B5j"/>
+                                    <constraint firstAttribute="height" constant="30" id="tFO-sR-8Ts"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r71-94-i2s">
+                                <rect key="frame" x="40" y="78" width="295" height="160"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oC3-9p-1dd">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="20"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <color key="textColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y1U-9n-lja">
+                                        <rect key="frame" x="0.0" y="40" width="295" height="50"/>
+                                        <color key="backgroundColor" red="0.086274509799999996" green="0.098039215690000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Q4N-wh-pcv"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.56078431370000004" green="0.81176470590000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dY3-Js-7Hz">
+                                        <rect key="frame" x="0.0" y="110" width="295" height="50"/>
+                                        <color key="backgroundColor" red="0.086274509799999996" green="0.098039215690000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="i1X-3h-VmA"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.56078431370000004" green="0.81176470590000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqY-FY-NI1">
+                                <rect key="frame" x="147" y="258" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="jwp-Sr-7QU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                                <state key="normal" title="SIGN IN">
+                                    <color key="titleColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25490196078431371" green="0.27058823529411763" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gqY-FY-NI1" firstAttribute="top" secondItem="r71-94-i2s" secondAttribute="bottom" constant="20" id="JrD-1Q-xxZ"/>
+                            <constraint firstItem="Myd-Ey-A4E" firstAttribute="leading" secondItem="K0K-9d-dZc" secondAttribute="leading" constant="20" id="QWZ-Gn-HJr"/>
+                            <constraint firstItem="gqY-FY-NI1" firstAttribute="centerX" secondItem="EEH-oX-3jd" secondAttribute="centerX" id="Y8A-mt-ob2"/>
+                            <constraint firstItem="r71-94-i2s" firstAttribute="leading" secondItem="K0K-9d-dZc" secondAttribute="leading" constant="40" id="c1k-B0-trR"/>
+                            <constraint firstItem="Myd-Ey-A4E" firstAttribute="top" secondItem="K0K-9d-dZc" secondAttribute="top" constant="8" id="dnF-fJ-mMC"/>
+                            <constraint firstItem="r71-94-i2s" firstAttribute="top" secondItem="Myd-Ey-A4E" secondAttribute="bottom" constant="20" id="hWy-Gb-ckk"/>
+                            <constraint firstItem="K0K-9d-dZc" firstAttribute="trailing" secondItem="r71-94-i2s" secondAttribute="trailing" constant="40" id="q6v-zV-hDc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K0K-9d-dZc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kzC-Vo-V4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93.599999999999994" y="8.5457271364317844"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -202,6 +277,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="close" width="21" height="20"/>
         <image name="emailIcon" width="25" height="16"/>
         <image name="first" width="30" height="30"/>
         <image name="loginBGImage" width="375" height="284"/>
