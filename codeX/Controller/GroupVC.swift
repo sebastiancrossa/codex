@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  GroupVC.swift
 //  codeX
 //
 //  Created by Sebastian Crossa on 5/27/18.
@@ -8,12 +8,15 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class GroupVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
