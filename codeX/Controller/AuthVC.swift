@@ -15,6 +15,10 @@ class AuthVC: UIViewController {
 
     }
     
+    @IBAction func signInWithEmailButtonWasPressed(_ sender: Any) {
+        
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
