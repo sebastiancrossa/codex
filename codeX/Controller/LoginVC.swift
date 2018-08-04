@@ -27,11 +27,27 @@ class LoginVC: UIViewController {
         if emailField.text != nil && passwordField.text != nil {
             
             AuthService.instance.loginUser(withEmail: emailField.text!, andPassword: passwordField.text!) { (success, loginError) in
+                
+                // If the user is already registered
                 if success {
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    print("codeX ERROR | \(String(descvribing: loginError?.localizedDescription))")
+                    print("codeX ERROR | \(String(describing: loginError?.localizedDescription))")
                 }
+                
+                // If the user hasnt
+                AuthService.instance.registerUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, userCreationComplete: { (success, registrationError) in
+                    
+                    if success {
+                        AuthService.instance.loginUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, loginComplete: { (success, nil) in
+                            print("codeX | Succesfully registered user")
+                        })
+                    } else {
+                        print("codeX ERROR | \(String(describing: registrationError?.localizedDescription))")
+                    }
+                    
+                })
+                
             } // We know that we have email && pasword values, so we unwrap it
             
         }
