@@ -338,7 +338,7 @@
                         <viewLayoutGuide key="safeArea" id="K0K-9d-dZc"/>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="dY3-Js-7Hz" id="nbU-Tv-VaT"/>
+                        <outlet property="emailField" destination="Y1U-9n-lja" id="rYN-SH-MjR"/>
                         <outlet property="passwordField" destination="dY3-Js-7Hz" id="dwM-dT-Her"/>
                     </connections>
                 </viewController>

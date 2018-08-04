@@ -7,19 +7,19 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginVC: UIViewController {
 
     @IBOutlet weak var emailField: InsetTextField!
-    
     @IBOutlet weak var passwordField: InsetTextField!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         emailField.delegate = self
         passwordField.delegate = self
-
     }
 
     @IBAction func signInButtonWasPressed(_ sender: Any) {
@@ -35,8 +35,10 @@ class LoginVC: UIViewController {
                     print("codeX ERROR | \(String(describing: loginError?.localizedDescription))")
                 }
                 
-                // If the user hasnt
+                // If the user hasnt registered yet
                 AuthService.instance.registerUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, userCreationComplete: { (success, registrationError) in
+                    
+                    print(self.emailField.text)
                     
                     if success {
                         AuthService.instance.loginUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, loginComplete: { (success, nil) in
@@ -59,6 +61,4 @@ class LoginVC: UIViewController {
     }
 }
 
-extension LoginVC: UITextFieldDelegate {
-    
-}
+extension LoginVC: UITextFieldDelegate { }
