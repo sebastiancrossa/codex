@@ -28,8 +28,8 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
-DataService.swift
-AuthService.swift
+codeX/Info.plist
+codeX/GoogleService-Info.plist
 
 ## Playgrounds
 timeline.xctimeline
