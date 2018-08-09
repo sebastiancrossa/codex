@@ -28,8 +28,7 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
-codeX/Info.plist
-codeX/GoogleService-Info.plist
+*.plist
 
 ## Playgrounds
 timeline.xctimeline
