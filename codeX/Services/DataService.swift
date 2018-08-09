@@ -45,4 +45,16 @@ class DataService {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
+    func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: DarwinBoolean) -> ()) {
+        // Check to see if the user is wanting to post on the group board or on the feed
+        if groupKey != nil {
+            
+        } else {
+            // Will generate a differente UID for each message posted
+            REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid])
+            
+            sendComplete(true)
+        }
+    }
+    
 }

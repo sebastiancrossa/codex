@@ -19,8 +19,8 @@ class AuthService {
                 return
             }
             
-            let userData = ["provider": user.providerID, "email": user.email]
-            DataService.instance.createDBUser(uid: user.uid, userData: userData)
+            let userData = ["provider": user.user.uid, "email": user.user.email]
+            DataService.instance.createDBUser(uid: user.user.uid, userData: userData)
             userCreationComplete(true, nil)
         }
     }

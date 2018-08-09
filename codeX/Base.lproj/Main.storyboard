@@ -28,6 +28,9 @@
                                             <constraint firstAttribute="width" constant="30" id="i6U-HP-0Fp"/>
                                         </constraints>
                                         <state key="normal" image="compose"/>
+                                        <connections>
+                                            <segue destination="cOJ-GX-9kh" kind="presentation" id="UnD-pa-fSG"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKX-el-HtM">
                                         <rect key="frame" x="160.5" y="33.5" width="54.5" height="21"/>
@@ -110,6 +113,9 @@
                                             <constraint firstAttribute="width" constant="30" id="dLw-a1-2KD"/>
                                         </constraints>
                                         <state key="normal" image="close"/>
+                                        <connections>
+                                            <action selector="closeButtonWasPressed:" destination="cOJ-GX-9kh" eventType="touchUpInside" id="PgC-76-eW3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.086274509799999996" green="0.098039215690000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,7 +127,7 @@
                                     <constraint firstItem="nKc-le-KZk" firstAttribute="top" secondItem="37f-MN-HiH" secondAttribute="top" constant="30" id="yo6-lQ-N6B"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NVV-wO-Lp6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="NVV-wO-Lp6">
                                 <rect key="frame" x="20" y="90" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="4uh-eF-1ls"/>
@@ -137,7 +143,7 @@
                                 <color key="textColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write something here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GW1-yY-N0a">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write something down..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GW1-yY-N0a">
                                 <rect key="frame" x="20" y="170" width="335" height="427"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
@@ -153,6 +159,9 @@
                                 <state key="normal" title=" SEND" image="send">
                                     <color key="titleColor" red="0.30214685201644897" green="0.74723225831985474" blue="0.33267867565155029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendButtonWasPressed:" destination="cOJ-GX-9kh" eventType="touchUpInside" id="WK3-GZ-JHG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.25490196079999999" green="0.27058823529999998" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -175,6 +184,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PSE-23-fEw"/>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="Xkt-QQ-Ajx" id="Xfc-hr-XKA"/>
+                        <outlet property="profileImage" destination="NVV-wO-Lp6" id="24Q-Le-XpV"/>
+                        <outlet property="sendButton" destination="54L-pM-T7J" id="hZF-KS-JcJ"/>
+                        <outlet property="textView" destination="GW1-yY-N0a" id="I9Q-nR-fd1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nq-tc-s2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

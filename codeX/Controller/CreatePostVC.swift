@@ -7,29 +7,46 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CreatePostVC: UIViewController {
 
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var sendButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        textView.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func sendButtonWasPressed(_ sender: Any) {
+        if textView.text != "" && textView.text != "Write something down..." {
+            // Disable the send button while backend processes the message
+            sendButton.isEnabled = false
+            
+            DataService.instance.uploadPost(withMessage: textView.text, forUID: (Auth.auth().currentUser?.uid)!, withGroupKey: nil, sendComplete: { (isComplete) in
+                if isComplete.boolValue {
+                    self.sendButton.isEnabled = true
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    self.sendButton.isEnabled = true
+                    print("codeX | There was an error proccessing the message")
+                }
+            })
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func closeButtonWasPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
-    */
+}
 
+extension CreatePostVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = "" // Will clear the manual placeholder text
+    }
 }
