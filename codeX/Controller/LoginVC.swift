@@ -18,6 +18,8 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        super.hideKeyboardWhenTappedAround()
+        
         emailField.delegate = self
         passwordField.delegate = self
     }

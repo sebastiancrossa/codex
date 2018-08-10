@@ -356,10 +356,10 @@
             </objects>
             <point key="canvasLocation" x="2340" y="368"/>
         </scene>
-        <!--View Controller-->
+        <!--Create GroupsVC-->
         <scene sceneID="8Oy-5T-fZb">
             <objects>
-                <viewController id="3WE-k7-s2T" sceneMemberID="viewController">
+                <viewController id="3WE-k7-s2T" customClass="CreateGroupsVC" customModule="codeX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kk0-ek-Dgs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,6 +377,9 @@
                                         <state key="normal" title="DONE">
                                             <color key="titleColor" red="0.62218093870000002" green="0.83356648680000001" blue="0.37788850070000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="doneButtonWasPressed:" destination="3WE-k7-s2T" eventType="touchUpInside" id="TNl-fH-8Zq"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_newGroup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pj-eo-4Fw">
                                         <rect key="frame" x="138" y="33.5" width="100" height="21"/>
@@ -391,6 +394,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-UR-2Bb">
                                         <rect key="frame" x="20" y="33" width="21" height="22"/>
                                         <state key="normal" image="close"/>
+                                        <connections>
+                                            <action selector="closeButtonWasPressed:" destination="3WE-k7-s2T" eventType="touchUpInside" id="DvI-jL-1Qa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.086274509799999996" green="0.098039215690000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
@@ -419,7 +425,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Wpa-1Y-Hi8"/>
                                         </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.62218093870000002" green="0.83356648680000001" blue="0.37788850070000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -435,7 +441,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="FaZ-sC-15d"/>
                                         </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.62218093870000002" green="0.83356648680000001" blue="0.37788850070000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -451,7 +457,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="hAU-Q8-K7B"/>
                                         </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.62218093870000002" green="0.83356648680000001" blue="0.37788850070000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -484,6 +490,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uVm-sK-ghe"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="6wc-Qd-EYS" id="rR6-mP-5P0"/>
+                        <outlet property="doneButton" destination="IpW-02-eLF" id="uAh-6q-FGH"/>
+                        <outlet property="emailSearchTextField" destination="cdP-PM-uvN" id="UcT-in-Wc9"/>
+                        <outlet property="emailSearchTitle" destination="vsn-E3-tWZ" id="RNB-7O-fck"/>
+                        <outlet property="tableView" destination="8MV-Vp-m1L" id="PAd-fw-cgY"/>
+                        <outlet property="titleTextField" destination="TwN-M4-t9f" id="a0x-5A-ryf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vK-jV-99z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -21,6 +21,7 @@ class CreatePostVC: UIViewController {
         super.viewDidLoad()
 
         sendButton.bindToKeyboard() // Button will move as keyboard moves aswell
+        self.hideKeyboardWhenTappedAround()
         
         textView.delegate = self
     }
@@ -60,5 +61,17 @@ class CreatePostVC: UIViewController {
 extension CreatePostVC: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = "" // Will clear the manual placeholder text
+   }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
