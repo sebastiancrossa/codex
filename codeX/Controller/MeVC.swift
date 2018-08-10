@@ -19,6 +19,12 @@ class MeVC: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.emailLabel.text = Auth.auth().currentUser?.email
+    }
 
     @IBAction func signOutButtonWasPressed(_ sender: Any) {
         let logoutPopup = UIAlertController(title: "Logout?", message: "Are you sure you want yo log out?", preferredStyle: .actionSheet)
