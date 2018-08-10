@@ -1,2 +1,2 @@
-# codex
-Social media for computer programmers
+# codeX
+Social media for computer programmers made easy.
