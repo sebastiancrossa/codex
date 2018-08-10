@@ -20,6 +20,8 @@ class CreatePostVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        sendButton.bindToKeyboard() // Button will move as keyboard moves aswell
+        
         textView.delegate = self
     }
 
