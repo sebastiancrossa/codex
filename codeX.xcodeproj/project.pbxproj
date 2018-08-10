@@ -25,6 +25,7 @@
 		986BF42720BC7C6E000EE0CD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986BF42620BC7C6E000EE0CD /* AuthService.swift */; };
 		98F92DA6211D26D800E3EE00 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F92DA5211D26D800E3EE00 /* UIViewExt.swift */; };
 		98F92DA8211D383200E3EE00 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F92DA7211D383200E3EE00 /* FeedCell.swift */; };
+		98F92DAA211D39A300E3EE00 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F92DA9211D39A300E3EE00 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		986BF42620BC7C6E000EE0CD /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		98F92DA5211D26D800E3EE00 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		98F92DA7211D383200E3EE00 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		98F92DA9211D39A300E3EE00 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 		980FE74920BB58DF00D99417 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				98F92DA9211D39A300E3EE00 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				980FE73320BB574300D99417 /* FeedVC.swift in Sources */,
 				986BF42320BC7724000EE0CD /* InsetTextField.swift in Sources */,
 				986BF41D20BBB85C000EE0CD /* DataService.swift in Sources */,
+				98F92DAA211D39A300E3EE00 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
