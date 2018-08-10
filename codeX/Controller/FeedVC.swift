@@ -26,7 +26,7 @@ class FeedVC: UIViewController {
         super.viewDidAppear(animated)
         
         DataService.instance.getAllFeedMessages { (returnedMessagesArray) in
-            self.messageArray = returnedMessagesArray
+            self.messageArray = returnedMessagesArray.reversed()
             self.tableView.reloadData()
         }
     }
