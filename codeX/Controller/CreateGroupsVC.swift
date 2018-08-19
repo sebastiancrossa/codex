@@ -20,6 +20,7 @@ class CreateGroupsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var emailArray = [String]()
+    var chosenUserArray = [String]() // Will hold every email chosen when creating a new group
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,12 @@ class CreateGroupsVC: UIViewController {
         emailSearchTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
 
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        doneButton.isHidden = true
     }
     
     @objc func textFieldDidChange() {
@@ -73,8 +80,33 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource {
         
         let profileImage = UIImage(named: "defaultProfileImage")!
         
-        cell.configureCell(profileImage: profileImage, withEmail: emailArray[indexPath.row], isSelected: true)
+        if chosenUserArray.contains(emailArray[indexPath.row]) {
+            cell.configureCell(profileImage: profileImage, withEmail: emailArray[indexPath.row], isSelected: true)
+        } else {
+            cell.configureCell(profileImage: profileImage, withEmail: emailArray[indexPath.row], isSelected: false)
+        }
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? UserCell else { return }
+        
+        if !chosenUserArray.contains(cell.emailLabel.text!) {
+            chosenUserArray.append(cell.emailLabel.text!)
+            
+            emailSearchTitle.text = chosenUserArray.joined(separator: ", ")
+            doneButton.isHidden = false
+        } else {
+            chosenUserArray = chosenUserArray.filter({ $0 != cell.emailLabel.text! })
+            
+            if chosenUserArray.count >= 1 {
+                emailSearchTitle.text = chosenUserArray.joined(separator: ", ")
+            } else {
+                emailSearchTitle.text = "Add coders to the group"
+                doneButton.isHidden = true
+            }
+        }
     }
 }
 
