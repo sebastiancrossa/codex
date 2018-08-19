@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class GroupFeedVC: UIViewController {
 
@@ -20,6 +21,7 @@ class GroupFeedVC: UIViewController {
     @IBOutlet weak var messageTextField: InsetTextField!
     
     var group: Group?
+    var groupMessages = [Message]()
     
     func initData(forGroup group: Group) {
         self.group = group
@@ -27,6 +29,9 @@ class GroupFeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         sendButtonView.bindToKeyboard()
     }
@@ -39,9 +44,30 @@ class GroupFeedVC: UIViewController {
             self.membersLabel.text = returnedEmails.joined(separator: ", ")
         }
         
+        DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in
+            DataService.instance.getAllMessagesForDesiredGroup(desiredGroup: self.group!, handler: { (returnedGroupMessages) in
+                self.groupMessages = returnedGroupMessages
+                
+                self.tableView.reloadData()
+            })
+        }
     }
     
-    @IBOutlet weak var sendButtonWasPressed: UIButton!
+    @IBAction func sendButtonWasPressed(_ sender: Any) {
+        if messageTextField.text != "" {
+            messageTextField.isEnabled = false
+            sendButton.isEnabled = false
+            
+            DataService.instance.uploadPost(withMessage: messageTextField.text!, forUID: (Auth.auth().currentUser?.uid)!, withGroupKey: group?.key) { (complete) in
+                if complete.boolValue {
+                    self.messageTextField.text = ""
+                    
+                    self.messageTextField.isEnabled = true
+                    self.sendButton.isEnabled = true
+                }
+            }
+        }
+    }
     
     @IBAction func backButtonWasPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -51,4 +77,26 @@ class GroupFeedVC: UIViewController {
         return .lightContent
     }
     
+}
+
+extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return groupMessages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupFeedCell", for: indexPath) as? GroupFeedCell else { return UITableViewCell() }
+        
+        let message = groupMessages[indexPath.row]
+        
+        DataService.instance.getUsername(forUID: message.senderID) { (email) in
+             cell.configureCell(profileImage: UIImage(named: "defaultProfileImage")!, email: email, content: message.content)
+        }
+        
+        return cell
+    }
 }

@@ -60,7 +60,8 @@ class DataService {
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: DarwinBoolean) -> ()) {
         // Check to see if the user is wanting to post on the group board or on the feed
         if groupKey != nil {
-            
+            REF_GROUPS.child(groupKey!).child("messages").childByAutoId().updateChildValues(["content": message, "senderId": uid])
+            sendComplete(true)
         } else {
             // Will generate a differente UID for each message posted
             REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid])
@@ -86,6 +87,24 @@ class DataService {
             
             handler(messageArray)
             
+        }
+    }
+    
+    func getAllMessagesForDesiredGroup(desiredGroup: Group, handler: @escaping(_ messagesArray: [Message]) -> ()) {
+        var groupMessageArray = [Message]()
+        
+        REF_GROUPS.child(desiredGroup.key).child("messages").observeSingleEvent(of: .value) { (groupMessageSnapshot) in
+            guard let groupMessageSnapshot = groupMessageSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for groupMessage in groupMessageSnapshot {
+                let content = groupMessage.childSnapshot(forPath: "content").value as! String
+                let senderId = groupMessage.childSnapshot(forPath: "senderId").value as! String
+                let groupMessage = Message(content: content, senderID: senderId)
+                
+                groupMessageArray.append(groupMessage)
+            }
+            
+            handler(groupMessageArray)
         }
     }
     

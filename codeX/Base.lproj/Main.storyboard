@@ -467,6 +467,9 @@
                                             <constraint firstAttribute="width" constant="30" id="D3B-LG-OhN"/>
                                         </constraints>
                                         <state key="normal" image="send"/>
+                                        <connections>
+                                            <action selector="sendButtonWasPressed:" destination="9Ju-KV-dID" eventType="touchUpInside" id="oxp-M9-aFd"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Send a message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iRz-dZ-tDw" customClass="InsetTextField" customModule="codeX" customModuleProvider="target">
                                         <rect key="frame" x="15" y="15" width="307" height="30"/>
@@ -513,7 +516,6 @@
                         <outlet property="messageTextField" destination="iRz-dZ-tDw" id="FRw-c7-i9n"/>
                         <outlet property="sendButton" destination="TQh-TE-FZw" id="Roe-X7-ESw"/>
                         <outlet property="sendButtonView" destination="3WK-NP-cns" id="EEz-6X-Yd2"/>
-                        <outlet property="sendButtonWasPressed" destination="TQh-TE-FZw" id="FhM-cC-amf"/>
                         <outlet property="tableView" destination="EON-h5-veU" id="a1T-WQ-u4b"/>
                     </connections>
                 </viewController>
