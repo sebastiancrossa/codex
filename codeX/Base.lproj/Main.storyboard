@@ -359,7 +359,7 @@
         <!--Group FeedVC-->
         <scene sceneID="gao-lW-i1R">
             <objects>
-                <viewController id="9Ju-KV-dID" customClass="GroupFeedVC" customModule="codeX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupFeedVC" id="9Ju-KV-dID" customClass="GroupFeedVC" customModule="codeX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gOR-ER-mED">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -508,7 +508,7 @@
                         <viewLayoutGuide key="safeArea" id="1bG-lN-S61"/>
                     </view>
                     <connections>
-                        <outlet property="groupTitleLabel" destination="QHx-WB-v4C" id="C2p-OQ-loS"/>
+                        <outlet property="groupTitleLabel" destination="VFt-nb-ivg" id="R4w-Ab-Gbq"/>
                         <outlet property="membersLabel" destination="L4p-In-S6a" id="k8E-R8-zoo"/>
                         <outlet property="messageTextField" destination="iRz-dZ-tDw" id="FRw-c7-i9n"/>
                         <outlet property="sendButton" destination="TQh-TE-FZw" id="Roe-X7-ESw"/>
@@ -519,7 +519,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25O-Re-tWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1615.2" y="1074.5127436281859"/>
+            <point key="canvasLocation" x="1630" y="1037"/>
         </scene>
         <!--Create GroupsVC-->
         <scene sceneID="8Oy-5T-fZb">
