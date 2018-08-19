@@ -47,8 +47,11 @@ class GroupFeedVC: UIViewController {
         DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in
             DataService.instance.getAllMessagesForDesiredGroup(desiredGroup: self.group!, handler: { (returnedGroupMessages) in
                 self.groupMessages = returnedGroupMessages
-                
                 self.tableView.reloadData()
+                
+                if self.groupMessages.count > 0 {
+                    self.tableView.scrollToRow(at: IndexPath(row: self.groupMessages.count - 1, section: 0), at: .none, animated: true)
+                }
             })
         }
     }
