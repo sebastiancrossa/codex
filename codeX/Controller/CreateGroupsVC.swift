@@ -19,14 +19,30 @@ class CreateGroupsVC: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    var emailArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        emailSearchTextField.delegate = self
+        emailSearchTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
 
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    @objc func textFieldDidChange() {
+        if emailSearchTextField.text == "" {
+            emailArray = []
+            tableView.reloadData()
+        } else {
+            DataService.instance.getEmail(forSearchQuery: emailSearchTextField.text!) { (returnedEmailArray) in
+                self.emailArray = returnedEmailArray
+                self.tableView.reloadData()
+            }
+        }
     }
     
     @IBAction func doneButtonWasPressed(_ sender: Any) {
@@ -49,7 +65,7 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5 // using constant as a tester
+        return emailArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,7 +73,11 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource {
         
         let profileImage = UIImage(named: "defaultProfileImage")!
         
-        cell.configureCell(profileImage: profileImage, withEmail: "sebastian@codeX.com", isSelected: true)
+        cell.configureCell(profileImage: profileImage, withEmail: emailArray[indexPath.row], isSelected: true)
         return cell
     }
+}
+
+extension CreateGroupsVC: UITextFieldDelegate {
+    
 }
