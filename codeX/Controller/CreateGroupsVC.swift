@@ -26,6 +26,8 @@ class CreateGroupsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        super.hideKeyboardWhenTappedAround()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
